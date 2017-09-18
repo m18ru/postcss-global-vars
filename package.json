@@ -1,0 +1,35 @@
+{
+  "name": "postcss-global-vars",
+  "version": "0.1.0",
+  "description": "PostCSS plugin to declare global variables, accepts some internal references",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m18ru/postcss-global-vars.git"
+  },
+  "keywords": [
+    "postcss-plugin",
+    "global",
+    "variables",
+    "variable"
+  ],
+  "author": "Andrey Volynkin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m18ru/postcss-global-vars/issues"
+  },
+  "homepage": "https://github.com/m18ru/postcss-global-vars#readme",
+  "dependencies": {
+    "postcss": "^6.0.11"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.28",
+    "tslint": "^5.7.0",
+    "tslint-config-m18": "^1.6.2",
+    "typescript": "^2.5.2"
+  }
+}
