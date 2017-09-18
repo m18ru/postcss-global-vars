@@ -167,7 +167,7 @@ function injectInternalVariables(
 			
 			if ( typeof value === 'string' )
 			{
-				newData[key] = inject( value, newData, variablePattern );
+				dataPart[key] = inject( value, newData, variablePattern );
 			}
 			else if ( typeof value === 'object' )
 			{
