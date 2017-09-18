@@ -96,7 +96,7 @@ function isPropertyExists( data: any, property: string ): boolean
 	return (
 		( typeof data === 'object' )
 		&& data.hasOwnProperty( property )
-	)
+	);
 }
 
 /**
@@ -112,9 +112,9 @@ function nestedProperty( data: VariablesData, path: string ): string
 		{
 			if ( !isPropertyExists( value, property ) )
 			{
-				const path = properties.slice( 0, index + 1 ).join( '.' );
+				const currentPath = properties.slice( 0, index + 1 ).join( '.' );
 				
-				throw new TypeError( `"${path}" is not defined.` );
+				throw new TypeError( `"${currentPath}" is not defined.` );
 			}
 			
 			return value[property];
@@ -147,6 +147,12 @@ function inject(
 	);
 }
 
+/**
+ * Inject internal references in variables data.
+ * 
+ * @param data Variables data.
+ * @param variablePattern Variable pattern.
+ */
 function injectInternalVariables(
 	data: VariablesData, variablePattern: RegExp,
 ): VariablesData
