@@ -80,7 +80,7 @@ function regExpEscape( value: string ): string
 function makeVariableRegExp( prefix: string ): RegExp
 {
 	return new RegExp(
-		regExpEscape( prefix ) + '([\w.-]+)',
+		regExpEscape( prefix ) + '([\\w.-]+)',
 		'g',
 	);
 }
