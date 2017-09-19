@@ -5,9 +5,15 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "test": "npm run test:main",
+    "test": "npm run lint && npm run test:main",
     "test:main": "cross-env TS_NODE_PROJECT=test/tsconfig.json mocha --compilers ts:ts-node/register",
-    "build": "tsc"
+    "lint:scripts-project": "tslint -c tslint-type-check.json -p tsconfig.json --type-check",
+    "lint:scripts-other": "tslint \"{*.js,src/*.d.ts,test/*.ts}\"",
+    "lint": "npm run lint:scripts-project && npm run lint:scripts-other",
+    "clean": "rimraf lib",
+    "build": "tsc",
+    "prepublishOnly": "npm run test",
+    "prepare": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
