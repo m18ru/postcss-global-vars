@@ -114,7 +114,7 @@ function nestedProperty( data: VariablesData, path: string ): string
 			{
 				const currentPath = properties.slice( 0, index + 1 ).join( '.' );
 				
-				throw new TypeError( `"${currentPath}" is not defined.` );
+				throw new TypeError( `Property "${currentPath}" is not defined.` );
 			}
 			
 			return value[property];
