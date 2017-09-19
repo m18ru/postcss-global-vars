@@ -1,4 +1,4 @@
-import {Declaration, plugin, Plugin, Root, Transformer} from 'postcss';
+import {AtRule, Declaration, plugin, Plugin, Root, Transformer} from 'postcss';
 
 /**
  * Name of this plugin.
@@ -56,9 +56,42 @@ function main( options: PostCssGlobalVarsOptions = {data: {}} ): Transformer
 		}
 	};
 	
+	const onAtRule = ( rule: AtRule ): void =>
+	{
+		try
+		{
+			rule.params = inject(
+				rule.params,
+				variablesData,
+				variablePattern,
+			);
+		}
+		catch ( error )
+		{
+			throw rule.error( error.message, {plugin: PLUGIN_NAME} );
+		}
+	};
+	
 	return ( root: Root ): void =>
 	{
-		root.walkDecls( onDeclaration );
+		root.walk(
+			( node ) =>
+			{
+				switch ( node.type )
+				{
+					case 'decl':
+						onDeclaration( node );
+						break;
+					
+						case 'atrule':
+							onAtRule( node );
+							break;
+						
+						default:
+							break;
+				}
+			},
+		);
 	};
 }
 
