@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:main",
+    "test:main": "cross-env TS_NODE_PROJECT=test/tsconfig.json mocha --compilers ts:ts-node/register",
     "build": "tsc"
   },
   "repository": {
@@ -39,7 +40,14 @@
     "postcss": "^6.0.11"
   },
   "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.43",
     "@types/node": "^8.0.28",
+    "chai": "^4.1.2",
+    "cross-env": "^5.0.5",
+    "mocha": "^3.5.3",
+    "rimraf": "^2.6.2",
+    "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
     "tslint-config-m18": "^1.6.2",
     "typescript": "^2.5.2"
