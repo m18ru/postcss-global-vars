@@ -1,6 +1,6 @@
 {
   "name": "postcss-global-vars",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "PostCSS plugin to declare global variables, accepts some internal references",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
